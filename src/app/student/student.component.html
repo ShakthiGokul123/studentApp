@@ -1,0 +1,64 @@
+
+<div class="container">
+  <form>
+    <div class="row">
+      <div class="col-25">
+        <label>Roll No</label>
+      </div>
+      <div class="col-75">
+        <input type="text" [(ngModel)]="student.rollNo"  name="rollno" placeholder="Your rollno">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label>Date Of Birth</label>
+      </div>
+      <div class="col-75">
+        <input type="text"  name="dob" [(ngModel)]="student.dob" placeholder="Your dob">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label>First Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text"  name="firstname" [(ngModel)]="student.firstName" placeholder="Your firstname..">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label>Last Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" [(ngModel)]="student.lastName" name="lastname" placeholder="Your lastname..">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label>Parent Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" name="firstname" [(ngModel)]="student.parentName" placeholder="Your parentname..">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label>Parent Phone</label>
+      </div>
+      <div class="col-75">
+        <input type="text"  name="parentname" [(ngModel)]="student.parentPhone" placeholder="Your parentname..">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label>Address</label>
+      </div>
+      <div class="col-75">
+        <input type="text" name="address" [(ngModel)]="student.address" placeholder="Your address..">
+      </div>
+    </div>
+    <div style="margin-top:5%" class="row" class="col-75">
+      <input type="submit"  (click)="addstudent()" value="Save">
+    </div>
+  </form>
+</div>
