@@ -1,12 +1,11 @@
 
 <div class="container">
-  <form>
-    <div class="row">
+   <div class="row">
       <div class="col-25">
         <label>Roll No</label>
       </div>
       <div class="col-75">
-        <input type="text" [(ngModel)]="student.rollNo"  name="rollno" placeholder="Your rollno">
+        <input type="text" [(ngModel)]="student1.rollNo"  placeholder="Your rollno">
       </div>
     </div>
     <div class="row">
@@ -14,7 +13,7 @@
         <label>Date Of Birth</label>
       </div>
       <div class="col-75">
-        <input type="text"  name="dob" [(ngModel)]="student.dob" placeholder="Your dob">
+        <input type="text"   [(ngModel)]="student1.dob" placeholder="Your dob">
       </div>
     </div>
     <div class="row">
@@ -22,7 +21,7 @@
         <label>First Name</label>
       </div>
       <div class="col-75">
-        <input type="text"  name="firstname" [(ngModel)]="student.firstName" placeholder="Your firstname..">
+        <input type="text"  [(ngModel)]="student1.firstName" placeholder="Your firstname..">
       </div>
     </div>
     <div class="row">
@@ -30,7 +29,7 @@
         <label>Last Name</label>
       </div>
       <div class="col-75">
-        <input type="text" [(ngModel)]="student.lastName" name="lastname" placeholder="Your lastname..">
+        <input type="text" [(ngModel)]="student1.lastName"  placeholder="Your lastname..">
       </div>
     </div>
     <div class="row">
@@ -38,7 +37,7 @@
         <label>Parent Name</label>
       </div>
       <div class="col-75">
-        <input type="text" name="firstname" [(ngModel)]="student.parentName" placeholder="Your parentname..">
+        <input type="text"  [(ngModel)]="student1.parentName" placeholder="Your parentname..">
       </div>
     </div>
     <div class="row">
@@ -46,7 +45,7 @@
         <label>Parent Phone</label>
       </div>
       <div class="col-75">
-        <input type="text"  name="parentname" [(ngModel)]="student.parentPhone" placeholder="Your parentname..">
+        <input type="text"  [(ngModel)]="student1.parentPhone" placeholder="Your parentname..">
       </div>
     </div>
     <div class="row">
@@ -54,11 +53,34 @@
         <label>Address</label>
       </div>
       <div class="col-75">
-        <input type="text" name="address" [(ngModel)]="student.address" placeholder="Your address..">
+        <input type="text"  [(ngModel)]="student1.address" placeholder="Your address..">
       </div>
     </div>
     <div style="margin-top:5%" class="row" class="col-75">
-      <input type="submit"  (click)="addstudent()" value="Save">
+      <input type="button"  (click)="addStudent()" value="Save">
     </div>
-  </form>
+    <div style="margin-top:5%" class="row" class="col-75">
+        <input type="button"  (click)="updateStuedent(student1)" value="Update">
+      </div>
 </div>
+
+
+<!--Tables-->
+<table>
+  <caption>Student Summary</caption>
+  <button input="button" (click)="deleteAllRecordsFromLocalStorage()"> Delete All</button>
+  <tbody *ngFor="let student of ListFromLocalStorage">
+    <tr>
+      <td data-label="Roll Number">{{student.rollNo}}</td>
+      <td data-label="Dob">{{student.dob}}</td>
+      <td data-label="First Name">{{student.firstName}}</td>
+      <td data-label="Last Name">{{student.lastName}}</td>
+      <td data-label="Parent Name">{{student.parentName}}</td>
+      <td data-label="Parent Phone">{{student.parentPhone}}</td>
+      <td data-label="Address">{{student.address}}</td>
+    </tr>
+    <button input="button" (click)="editRecordFromLocalStorage(student)">Edit</button>
+    <button input="button" (click)="deleteOneRecord(student)">Delete</button>
+  </tbody>
+</table>
+

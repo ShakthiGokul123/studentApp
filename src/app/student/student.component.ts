@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import {StudentService} from './student.service'
 // import { resetCompiledComponents } from '@angular/core/src/render3/jit/module';
 
@@ -8,25 +9,30 @@ import {StudentService} from './student.service'
   styleUrls: ['./student.component.css']
 })
 export class StudentComponent implements OnInit {
-  student = {rollNo:0,
-    firstName:"",
-    lastName:"",
-    dob:"",
-    parentName:"",
-    parentPhone:"",
-    address:""
-  };
-  constructor(private service:StudentService) { }
-
-  ngOnInit() {
-    // this.student=this.service.getStudent();
-  }
-  addstudent(student){
-    
-   this.service.addStudent(student);
-  
-  
  
-  }
+   student1:any = {};
+   ListFromLocalStorage;
+   studentList:any = []
+  constructor(private studentService:StudentService) { }
+ 
+  ngOnInit() {
+    this.ListFromLocalStorage=this.studentService.getListFromLocalStorage();
+     }
   
+
+  addStudent(){
+   this.studentService.addStudent(this.student1);
+  }
+  deleteAllRecordsFromLocalStorage(){
+    this.studentService.deleteAllRecordsFromLocalStorage();
+  }
+  editRecordFromLocalStorage(student){
+    this.student1=this.studentService.editRecordFromLocalStorage(student);
+  }
+  updateStuedent(student){
+    this.studentService.updateRecordToLocalStorage(student)
+  }
+  deleteOneRecord(student){
+    this.studentService.deleteOneRecord(student)
+  }
 }
